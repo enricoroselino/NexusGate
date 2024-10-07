@@ -4,7 +4,7 @@ using NexusGate.Infrastructure.Configurations;
 
 namespace NexusGate.Configurations;
 
-public static class EndpointConfiguration
+internal static class EndpointConfiguration
 {
     public static IServiceCollection AddEndpointConfiguration(this IServiceCollection services)
     {

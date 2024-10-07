@@ -2,7 +2,7 @@
 
 namespace NexusGate.Configurations;
 
-public static class ModulesDiscoveryConfiguration
+internal static class ModulesDiscoveryConfiguration
 {
     public static IServiceCollection AddModulesDiscoveryConfiguration(this IServiceCollection services)
     {

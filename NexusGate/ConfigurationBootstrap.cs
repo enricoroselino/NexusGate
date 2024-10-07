@@ -24,6 +24,7 @@ public static class ConfigurationBootstrap
         services.AddJsonWebTokenConfiguration();
         services.AddLoggerConfiguration();
         services.AddHealthCheckConfiguration();
+        services.AddCorsConfiguration();
         return services;
     }
 
@@ -34,7 +35,8 @@ public static class ConfigurationBootstrap
         {
             app.UseApiDocumentationConfiguration();
         }
-        
+
+        app.UseCorsConfiguration();
         app.UseLoggerConfiguration();
         app.UseRateLimiterConfiguration();
         app.UseGlobalExceptionConfiguration();

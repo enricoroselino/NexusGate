@@ -2,7 +2,7 @@
 
 namespace NexusGate.Configurations;
 
-public static class BackgroundJobConfiguration
+internal static class BackgroundJobConfiguration
 {
     public static IServiceCollection AddBackgroundJobConfiguration(this IServiceCollection services)
     {
