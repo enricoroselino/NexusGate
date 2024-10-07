@@ -1,9 +1,7 @@
-﻿using Asp.Versioning;
-using Carter;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Carter;
+using NexusGate.Infrastructure.Configurations;
 
-namespace NexusGate.Infrastructure.Configurations;
+namespace NexusGate.Configurations;
 
 public static class EndpointConfiguration
 {
