@@ -30,11 +30,11 @@ internal class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : 
 
         problemDetails.Extensions.Add("traceId", httpContext.TraceIdentifier);
 
-        // if (exception is ValidationException validationException)
-        // {
-        //     problemDetails.Extensions.Add("ValidationErrors", 
-        //         validationException.Errors);
-        // }
+        if (exception is ValidationException validationException)
+        {
+            problemDetails.Extensions.Add("ValidationErrors", 
+                validationException.Errors);
+        }
 
         await httpContext
             .Response
@@ -46,8 +46,8 @@ internal class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : 
         exception switch
         {
             InternalServerException => StatusCodes.Status500InternalServerError,
-            // ValidationException => StatusCodes.Status400BadRequest,
-            // BadRequestException => StatusCodes.Status400BadRequest,
+            ValidationException => StatusCodes.Status400BadRequest,
+            BadRequestException => StatusCodes.Status400BadRequest,
             // NotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError,
         };
