@@ -10,13 +10,16 @@ public static class SerilogConfiguration
 {
     public static IServiceCollection AddLoggerConfiguration(this IServiceCollection services)
     {
+        var seqEndpoint = Environment.GetEnvironmentVariable("SEQ_ENDPOINT") ??
+                          throw new InvalidOperationException("SEQ_ENDPOINT NOT SET.");
+
         var loggerConfiguration = new LoggerConfiguration()
             .MinimumLevel.Information()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .WriteTo.Seq("http://localhost:5341");
-        
+            .WriteTo.Seq(seqEndpoint);
+
         Log.Logger = loggerConfiguration.CreateLogger();
         services.AddSerilog(Log.Logger);
         return services;
