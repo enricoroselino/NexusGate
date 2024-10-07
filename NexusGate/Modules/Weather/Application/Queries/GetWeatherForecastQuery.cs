@@ -1,16 +1,15 @@
-﻿
-using MediatR;
+﻿using NexusGate.Infrastructure.Abstractions;
 using NexusGate.Modules.Weather.Domain;
 using NexusGate.Modules.Weather.Repositories;
 
 namespace NexusGate.Modules.Weather.Application.Queries;
 
-public class GetWeatherForecastQuery : IRequest<List<WeatherForecast>>
+public class GetWeatherForecastQuery : IQuery<List<WeatherForecast>>
 {
     public static readonly GetWeatherForecastQuery Instance = new();
 }
 
-public class GetWeatherForecastQueryHandler : IRequestHandler<GetWeatherForecastQuery, List<WeatherForecast>>
+public class GetWeatherForecastQueryHandler : IQueryHandler<GetWeatherForecastQuery, List<WeatherForecast>>
 {
     private readonly IWeatherRepository _weatherRepository;
 
