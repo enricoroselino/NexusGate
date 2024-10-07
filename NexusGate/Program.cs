@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddConfigurationsBootstrap();
+builder.Services.AddConfigurationsBootstrap(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
@@ -26,13 +26,5 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRateLimiterConfiguration();
-var apiVersionSet = app.NewApiVersionSet()
-    .HasApiVersion(new ApiVersion(1))
-    .ReportApiVersions()
-    .Build();
-
-app.MapGroup("api/v{apiVersion:apiVersion}")
-    .WithApiVersionSet(apiVersionSet)
-    .MapCarter();
-
+app.UseEndpointConfiguration();
 await app.RunAsync();

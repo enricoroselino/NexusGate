@@ -1,4 +1,5 @@
-﻿using Asp.Versioning.ApiExplorer;
+﻿using System.Reflection;
+using Asp.Versioning.ApiExplorer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -35,7 +36,7 @@ public class SwaggerGenConfigureOptions : IConfigureOptions<SwaggerGenOptions>
     
     public void Configure(SwaggerGenOptions options)
     {
-        const string projectName = "Your Project Name";
+        const string projectName = nameof(NexusGate);
         foreach (var description in _provider.ApiVersionDescriptions)
         {
             var openApiInfo = new OpenApiInfo

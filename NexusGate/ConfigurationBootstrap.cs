@@ -1,11 +1,12 @@
-﻿using NexusGate.Configurations;
+﻿using System.Reflection;
+using NexusGate.Configurations;
 using NexusGate.Infrastructure.Configurations;
 
 namespace NexusGate;
 
 public static class ConfigurationBootstrap
 {
-    public static IServiceCollection AddConfigurationsBootstrap(this IServiceCollection services)
+    public static IServiceCollection AddConfigurationsBootstrap(this IServiceCollection services, Assembly assembly)
     {
         services.AddEndpointConfiguration();
         services.AddSwaggerConfiguration();
@@ -13,7 +14,7 @@ public static class ConfigurationBootstrap
 
         services.AddFluentValidationConfiguration();
         services.AddBackgroundJobConfiguration();
-        services.AddMediatorConfiguration();
+        services.AddMediatorConfiguration(assembly);
 
         services.AddRateLimiterConfiguration();
         services.AddJsonWebTokenConfiguration();

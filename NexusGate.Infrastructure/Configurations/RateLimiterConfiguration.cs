@@ -1,6 +1,9 @@
 ﻿using System.Threading.RateLimiting;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace NexusGate.Configurations;
+namespace NexusGate.Infrastructure.Configurations;
 
 public static class RateLimiterConfiguration
 {
