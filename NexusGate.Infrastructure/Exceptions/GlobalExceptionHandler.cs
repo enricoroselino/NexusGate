@@ -6,14 +6,20 @@ using Microsoft.Extensions.Logging;
 
 namespace NexusGate.Infrastructure.Exceptions;
 
-internal class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler
+internal class GlobalExceptionHandler: IExceptionHandler
 {
+    private readonly ILogger<GlobalExceptionHandler> _logger;
+    public GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger)
+    {
+        _logger = logger;
+    }
+    
     public async ValueTask<bool> TryHandleAsync(
         HttpContext httpContext,
         Exception exception,
         CancellationToken cancellationToken)
     {
-        logger.LogError(
+        _logger.LogError(
             "Error Message: {@ExceptionMessage}, Occurred at:{@Time}"
             , exception.Message, DateTime.UtcNow);
 
