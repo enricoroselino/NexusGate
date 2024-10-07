@@ -26,7 +26,7 @@ public static class JsonWebTokenConfiguration
     private static TokenValidationParameters _tokenValidationParameters()
     {
         var key = Environment.GetEnvironmentVariable("JWT_KEY") ??
-                  throw new InvalidOperationException("JWT key is not configured.");
+                  throw new InvalidOperationException("JWT_KEY NOT SET.");
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
         var validIssuer = Environment.GetEnvironmentVariable("JWT_VALID_ISSUER") ??
                           throw new InvalidOperationException("JWT_VALID_ISSUER NOT SET.");
