@@ -1,4 +1,5 @@
 ﻿using NexusGate.Modules.Weather.Persistence;
+using NexusGate.Shared.Abstractions;
 
 namespace NexusGate.Modules.Weather;
 

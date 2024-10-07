@@ -1,4 +1,4 @@
-﻿using NexusGate.Modules;
+﻿using NexusGate.Shared.Abstractions;
 
 namespace NexusGate.Configurations;
 
