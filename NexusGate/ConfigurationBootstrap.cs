@@ -12,7 +12,7 @@ public static class ConfigurationBootstrap
         services.AddSwaggerConfiguration();
         services.AddModulesDiscoveryConfiguration();
 
-        services.AddFluentValidationConfiguration();
+        services.AddFluentValidationConfiguration(assembly);
         services.AddBackgroundJobConfiguration();
         services.AddMediatorConfiguration(assembly);
 

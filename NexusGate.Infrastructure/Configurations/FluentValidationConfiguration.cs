@@ -6,9 +6,9 @@ namespace NexusGate.Infrastructure.Configurations;
 
 public static class FluentValidationConfiguration
 {
-    public static IServiceCollection AddFluentValidationConfiguration(this IServiceCollection services)
+    public static IServiceCollection AddFluentValidationConfiguration(this IServiceCollection services, Assembly assembly)
     {
-        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddValidatorsFromAssembly(assembly);
         return services;
     }
 }
