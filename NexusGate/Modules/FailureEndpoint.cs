@@ -1,7 +1,7 @@
 ﻿using System.Threading.RateLimiting;
 using Carter;
-using NexusGate.Infrastructure.Constants;
-using NexusGate.Infrastructure.Exceptions;
+using NexusGate.Shared.Constants;
+using NexusGate.Shared.Exceptions;
 using Sprache;
 
 namespace NexusGate.Modules;
@@ -16,7 +16,7 @@ public class FailureEndpoint : ICarterModule
 
         group.MapGet("/internal", InternalServerError);
         group.MapGet("/limiter", TooManyRequests)
-            .RequireRateLimiting(LimiterConstant.IpRateLimiter);
+            .RequireRateLimiting(LimiterPolicyConstant.IpRateLimiter);
     }
 
     private static async Task<IResult> TooManyRequests()

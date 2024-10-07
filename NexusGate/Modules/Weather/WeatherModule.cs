@@ -1,4 +1,4 @@
-﻿using NexusGate.Modules.Weather.Repositories;
+﻿using NexusGate.Modules.Weather.Persistence;
 
 namespace NexusGate.Modules.Weather;
 

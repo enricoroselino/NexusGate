@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NexusGate.Shared.Exceptions;
 
-namespace NexusGate.Infrastructure.Exceptions;
+namespace NexusGate.Infrastructure;
 
 internal class GlobalExceptionHandler: IExceptionHandler
 {

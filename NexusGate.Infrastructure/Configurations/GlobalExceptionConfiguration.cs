@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using NexusGate.Infrastructure.Exceptions;
 
 namespace NexusGate.Infrastructure.Configurations;
 

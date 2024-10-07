@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Http;
 
 namespace NexusGate.Infrastructure.Limiters;
 
-internal static class IpRateLimiter
+public static class IpRateLimiter
 {
-    public const string Name = nameof(IpRateLimiter);
-
     public static RateLimitPartition<string?> Partition(HttpContext context)
     {
         var ipAddress = context.Connection.RemoteIpAddress?.ToString();

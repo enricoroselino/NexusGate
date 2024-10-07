@@ -1,6 +1,6 @@
 ﻿using NexusGate.Infrastructure.Abstractions;
 using NexusGate.Modules.Weather.Domain;
-using NexusGate.Modules.Weather.Repositories;
+using NexusGate.Modules.Weather.Persistence;
 
 namespace NexusGate.Modules.Weather.Application.Queries;
 

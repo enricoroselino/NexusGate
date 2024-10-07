@@ -8,7 +8,7 @@ namespace NexusGate.Infrastructure.Configurations;
 
 public static class SerilogConfiguration
 {
-    public static IServiceCollection AddSerilogConfiguration(this IServiceCollection services)
+    public static IServiceCollection AddLoggerConfiguration(this IServiceCollection services)
     {
         var loggerConfiguration = new LoggerConfiguration()
             .MinimumLevel.Information()
@@ -22,7 +22,7 @@ public static class SerilogConfiguration
         return services;
     }
 
-    public static IApplicationBuilder UseSerilogConfiguration(this IApplicationBuilder app)
+    public static IApplicationBuilder UseLoggerConfiguration(this IApplicationBuilder app)
     {
         app.UseSerilogRequestLogging();
         return app;

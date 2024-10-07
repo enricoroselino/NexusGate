@@ -1,4 +1,4 @@
-﻿namespace NexusGate.Infrastructure.Exceptions;
+﻿namespace NexusGate.Shared.Exceptions;
 
 public class InternalServerException : Exception
 {

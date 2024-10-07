@@ -22,7 +22,7 @@ public static class ConfigurationBootstrap
         // Infrastructure Configurations
         services.AddRateLimiterConfiguration();
         services.AddJsonWebTokenConfiguration();
-        services.AddSerilogConfiguration();
+        services.AddLoggerConfiguration();
         return services;
     }
 
@@ -34,7 +34,7 @@ public static class ConfigurationBootstrap
             app.UseApiDocumentationConfiguration();
         }
         
-        app.UseSerilogConfiguration();
+        app.UseLoggerConfiguration();
         app.UseRateLimiterConfiguration();
         app.UseGlobalExceptionConfiguration();
         
