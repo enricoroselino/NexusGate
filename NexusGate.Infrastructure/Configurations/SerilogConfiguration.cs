@@ -10,13 +10,14 @@ public static class SerilogConfiguration
 {
     public static IServiceCollection AddSerilogConfiguration(this IServiceCollection services)
     {
-        Log.Logger = new LoggerConfiguration()
+        var loggerConfiguration = new LoggerConfiguration()
             .MinimumLevel.Information()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
             .Enrich.FromLogContext()
             .WriteTo.Console()
-            .CreateLogger();
+            .WriteTo.Seq("http://localhost:5341");
         
+        Log.Logger = loggerConfiguration.CreateLogger();
         services.AddSerilog(Log.Logger);
         return services;
     }

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 
 namespace NexusGate.Infrastructure.Behaviors;
 
-public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+internal class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
@@ -16,11 +16,15 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("[START] Handle Request={Request} - Response={Response} - RequestData={RequestData}",
-            typeof(TRequest).Name, typeof(TResponse).Name, request);
+        var requestName = typeof(TRequest).Name;
+        var responseName = typeof(TResponse).Name;
+
+        const string startTemplate =
+            "[START] Handle Request{@RequestName} - Response={@ResponseName} - RequestData={@RequestData}";
+        const string endTemplate = "[END] Handled {@Request} with {@Response}";
+        _logger.LogInformation(startTemplate, requestName, responseName, request);
         var response = await next();
-        _logger.LogInformation("[END] Handled {Request} with {Response}",
-            typeof(TRequest).Name, typeof(TResponse).Name);
+        _logger.LogInformation(endTemplate, requestName, responseName);
 
         return response;
     }
