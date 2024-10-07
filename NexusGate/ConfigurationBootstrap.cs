@@ -23,6 +23,7 @@ public static class ConfigurationBootstrap
         services.AddRateLimiterConfiguration();
         services.AddJsonWebTokenConfiguration();
         services.AddLoggerConfiguration();
+        services.AddHealthCheckConfiguration();
         return services;
     }
 
@@ -37,6 +38,7 @@ public static class ConfigurationBootstrap
         app.UseLoggerConfiguration();
         app.UseRateLimiterConfiguration();
         app.UseGlobalExceptionConfiguration();
+        app.UseHealthCheckConfiguration();
         
         // UseEndpointConfiguration ideally should be at the most bottom
         app.UseEndpointConfiguration();
