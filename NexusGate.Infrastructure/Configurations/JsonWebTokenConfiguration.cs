@@ -7,7 +7,7 @@ namespace NexusGate.Infrastructure.Configurations;
 
 public static class JsonWebTokenConfiguration
 {
-    public static IServiceCollection AddJsonWebTokenConfiguration(this IServiceCollection services)
+    public static IServiceCollection AddAuthenticationConfiguration(this IServiceCollection services)
     {
         services.AddAuthentication(options =>
             {

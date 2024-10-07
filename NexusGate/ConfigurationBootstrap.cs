@@ -21,7 +21,7 @@ public static class ConfigurationBootstrap
 
         // Infrastructure Configurations
         services.AddRateLimiterConfiguration();
-        services.AddJsonWebTokenConfiguration();
+        services.AddAuthenticationConfiguration();
         services.AddLoggerConfiguration();
         services.AddHealthCheckConfiguration();
         services.AddCorsConfiguration();
