@@ -17,6 +17,7 @@ public static class ConfigurationBootstrap
         services.AddFluentValidationConfiguration(assembly);
         services.AddBackgroundJobConfiguration();
         services.AddMediatorConfiguration(assembly);
+        services.AddGlobalExceptionConfiguration();
 
         // Infrastructure Configurations
         services.AddRateLimiterConfiguration();
@@ -35,6 +36,7 @@ public static class ConfigurationBootstrap
         
         app.UseSerilogConfiguration();
         app.UseRateLimiterConfiguration();
+        app.UseGlobalExceptionConfiguration();
         
         // UseEndpointConfiguration ideally should be at the most bottom
         app.UseEndpointConfiguration();

@@ -13,15 +13,15 @@ public static class EndpointConfiguration
         return services;
     }
 
-    public static IEndpointRouteBuilder  UseEndpointConfiguration(this IEndpointRouteBuilder  app)
+    public static IEndpointRouteBuilder UseEndpointConfiguration(this IEndpointRouteBuilder app)
     {
-        var apiVersionSet = app.NewApiVersionSet()
+        var versionSet = app.NewApiVersionSet()
             .HasApiVersion(new ApiVersion(1))
             .ReportApiVersions()
             .Build();
 
         app.MapGroup("api/v{apiVersion:apiVersion}")
-            .WithApiVersionSet(apiVersionSet)
+            .WithApiVersionSet(versionSet)
             .MapCarter();
 
         return app;
