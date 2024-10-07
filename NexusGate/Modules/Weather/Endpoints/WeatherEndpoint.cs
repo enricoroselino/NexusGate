@@ -1,9 +1,9 @@
 ﻿using Carter;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using NexusGate.Configurations;
-using NexusGate.Infrastructure.Configurations;
+using NexusGate.Infrastructure.Constants;
 using NexusGate.Modules.Weather.Application.Queries;
+using NexusGate.Modules.Weather.Domain;
 
 namespace NexusGate.Modules.Weather.Endpoints;
 
@@ -16,10 +16,11 @@ public sealed class WeatherEndpoint : ICarterModule
             .WithOpenApi();
 
         group.MapGet("/forecast", GetWeatherForecast)
+            .Produces<List<WeatherForecast>>()
+            .ProducesProblem(StatusCodes.Status429TooManyRequests)
             .WithName(nameof(GetWeatherForecast))
-            .RequireRateLimiting(IpRateLimiter.Name);
-
-
+            .RequireRateLimiting(LimiterConstant.IpRateLimiter);
+        
         group.MapGet("/failed", GetFailedResult);
     }
 

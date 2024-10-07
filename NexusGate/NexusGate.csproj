@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Modules\Authentication\Application\" />
-      <Folder Include="Modules\Authentication\Domain\" />
-      <Folder Include="Modules\Authentication\Endpoints\" />
-      <Folder Include="Modules\Authentication\Persistence\" />
       <Folder Include="Modules\Weather\Application\Commands\" />
     </ItemGroup>
 

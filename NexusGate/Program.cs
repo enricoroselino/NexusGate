@@ -1,11 +1,8 @@
 using System.Reflection;
-using Asp.Versioning;
-using Carter;
 using DotNetEnv;
 using NexusGate;
 using NexusGate.Configurations;
 using NexusGate.Infrastructure.Configurations;
-using NexusGate.Modules;
 
 Env.Load(".env");
 var builder = WebApplication.CreateBuilder(args);
