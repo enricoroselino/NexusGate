@@ -11,8 +11,7 @@ public class FailureEndpoint : ICarterModule
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         const string groupName = "failure";
-        var group = app.MapGroup(groupName)
-            .WithOpenApi();
+        var group = app.MapGroup(groupName);
 
         group.MapGet("/internal", InternalServerError);
         group.MapGet("/limiter", TooManyRequests)

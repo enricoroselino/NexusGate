@@ -10,8 +10,7 @@ public sealed class WeatherEndpoint : ICarterModule
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         const string groupName = "weather";
-        var group = app.MapGroup(groupName)
-            .WithOpenApi();
+        var group = app.MapGroup(groupName);
 
         group.MapGet("/forecast", GetWeatherForecast)
             .Produces<List<WeatherForecast>>()

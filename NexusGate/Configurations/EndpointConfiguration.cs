@@ -22,6 +22,7 @@ internal static class EndpointConfiguration
 
         app.MapGroup("api/v{apiVersion:apiVersion}")
             .WithApiVersionSet(versionSet)
+            .WithOpenApi()
             .MapCarter();
 
         return app;
