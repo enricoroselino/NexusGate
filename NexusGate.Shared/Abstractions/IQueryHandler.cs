@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace NexusGate.Infrastructure.Abstractions;
+namespace NexusGate.Shared.Abstractions;
 
 public interface IQueryHandler<in TQuery, TResponse>
     : IRequestHandler<TQuery, TResponse>

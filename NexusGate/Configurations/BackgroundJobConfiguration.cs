@@ -9,8 +9,7 @@ public static class BackgroundJobConfiguration
         services.AddQuartz();
         services.AddQuartzHostedService(options =>
         {
-            // wait if any background job running, when closing.
-            options.WaitForJobsToComplete = true;
+            options.WaitForJobsToComplete = false;
         });
 
         return services;
