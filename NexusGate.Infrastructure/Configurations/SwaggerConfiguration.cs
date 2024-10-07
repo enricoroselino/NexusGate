@@ -24,7 +24,7 @@ public static class SwaggerConfiguration
     }
 }
 
-public class SwaggerGenConfigureOptions : IConfigureOptions<SwaggerGenOptions>
+internal class SwaggerGenConfigureOptions : IConfigureOptions<SwaggerGenOptions>
 {
     private readonly IApiVersionDescriptionProvider _provider;
 
