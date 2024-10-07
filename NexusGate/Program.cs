@@ -1,8 +1,6 @@
 using System.Reflection;
 using DotNetEnv;
 using NexusGate;
-using NexusGate.Configurations;
-using NexusGate.Infrastructure.Configurations;
 
 Env.Load(".env");
 var builder = WebApplication.CreateBuilder(args);
@@ -14,14 +12,6 @@ builder.Services.AddConfigurationsBootstrap(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwaggerConfiguration();
-}
-
 app.UseHttpsRedirection();
-
-app.UseRateLimiterConfiguration();
-app.UseEndpointConfiguration();
+app.UseConfigurationsBootstrap();
 await app.RunAsync();
