@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace NexusGate.Shared.Abstractions;
+namespace NexusGate.Shared.Abstractions.CQRS;
 
 public interface ICommand : ICommand<Unit>
 {
