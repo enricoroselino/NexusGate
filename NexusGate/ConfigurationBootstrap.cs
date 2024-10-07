@@ -10,7 +10,7 @@ public static class ConfigurationBootstrap
     {
         // Endpoint Configurations
         services.AddEndpointConfiguration();
-        services.AddSwaggerConfiguration();
+        services.AddApiDocumentationConfiguration();
         services.AddModulesDiscoveryConfiguration();
 
         // Service Configurations
@@ -30,11 +30,13 @@ public static class ConfigurationBootstrap
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
-            app.UseSwaggerConfiguration();
+            app.UseApiDocumentationConfiguration();
         }
         
         app.UseSerilogConfiguration();
         app.UseRateLimiterConfiguration();
+        
+        // UseEndpointConfiguration ideally should be at the most bottom
         app.UseEndpointConfiguration();
         return app;
     }

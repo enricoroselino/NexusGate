@@ -9,14 +9,14 @@ namespace NexusGate.Infrastructure.Configurations;
 
 public static class SwaggerConfiguration
 {
-    public static IServiceCollection AddSwaggerConfiguration(this IServiceCollection services)
+    public static IServiceCollection AddApiDocumentationConfiguration(this IServiceCollection services)
     {
         services.AddSwaggerGen();
         services.ConfigureOptions<SwaggerGenConfigureOptions>();
         return services;
     }
 
-    public static IApplicationBuilder UseSwaggerConfiguration(this IApplicationBuilder app)
+    public static IApplicationBuilder UseApiDocumentationConfiguration(this IApplicationBuilder app)
     {
         app.UseSwagger();
         app.UseSwaggerUI();
