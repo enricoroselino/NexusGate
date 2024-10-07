@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusGate.Infrastructure", "NexusGate.Infrastructure\NexusGate.Infrastructure.csproj", "{C1758794-914B-499E-B05D-21062EEA6590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusGate", "NexusGate\NexusGate.csproj", "{648D5650-63A9-46F0-A1A8-9C8A50BFF566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1758794-914B-499E-B05D-21062EEA6590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1758794-914B-499E-B05D-21062EEA6590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1758794-914B-499E-B05D-21062EEA6590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1758794-914B-499E-B05D-21062EEA6590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648D5650-63A9-46F0-A1A8-9C8A50BFF566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648D5650-63A9-46F0-A1A8-9C8A50BFF566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648D5650-63A9-46F0-A1A8-9C8A50BFF566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648D5650-63A9-46F0-A1A8-9C8A50BFF566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
