@@ -8,7 +8,6 @@
 
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Abstractions" Version="8.1.0" />
-        <PackageReference Include="Carter" Version="8.2.1" />
         <PackageReference Include="DotNetEnv" Version="3.1.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8"/>
         <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.11.0" />
@@ -20,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NexusGate.Endpoints\NexusGate.Endpoints.csproj" />
       <ProjectReference Include="..\NexusGate.Infrastructure\NexusGate.Infrastructure.csproj" />
     </ItemGroup>
 

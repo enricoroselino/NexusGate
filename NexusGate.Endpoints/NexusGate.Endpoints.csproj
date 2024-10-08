@@ -15,7 +15,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Carter" Version="8.2.1" />
+      <Compile Remove="Modules\Weather\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Modules\Weather\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Modules\Weather\**" />
     </ItemGroup>
 
 </Project>
