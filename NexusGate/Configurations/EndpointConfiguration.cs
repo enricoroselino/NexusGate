@@ -1,5 +1,4 @@
 ﻿using Asp.Versioning;
-using Carter;
 using NexusGate.Infrastructure.Configurations;
 
 namespace NexusGate.Configurations;
@@ -9,7 +8,6 @@ internal static class EndpointConfiguration
     public static IServiceCollection AddEndpointConfiguration(this IServiceCollection services)
     {
         services.AddEndpointVersioningConfiguration();
-        services.AddCarter();
         return services;
     }
 
@@ -20,11 +18,11 @@ internal static class EndpointConfiguration
             .ReportApiVersions()
             .Build();
 
-        app.MapGroup("api/v{apiVersion:apiVersion}")
+        var globalGroup = app.MapGroup("api/v{apiVersion:apiVersion}")
             .WithApiVersionSet(versionSet)
-            .WithOpenApi()
-            .MapCarter();
+            .WithOpenApi();
 
+        globalGroup.UseMapEndpoints();
         return app;
     }
 }
