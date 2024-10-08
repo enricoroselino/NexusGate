@@ -8,20 +8,7 @@ using NexusGate.Shared.Abstractions;
 
 namespace Modules.Forecast;
 
-public class WeatherForecastEndpoint
-{
-    protected WeatherForecastEndpoint()
-    {
-    }
-
-    protected static async Task<IResult> GetWeatherForecast(ISender mediator, CancellationToken cancellationToken)
-    {
-        var result = await mediator.Send(GetWeatherForecastQuery.Instance, cancellationToken);
-        return await Task.FromResult(Results.Ok(result));
-    }
-}
-
-public class WeatherForecastRouteBuilder: WeatherForecastEndpoint, IEndpoint
+public partial class WeatherForecastEndpoint: IEndpoint
 {
     public virtual void AddRoutes(IEndpointRouteBuilder routeBuilder)
     {
@@ -32,5 +19,14 @@ public class WeatherForecastRouteBuilder: WeatherForecastEndpoint, IEndpoint
             .Produces<List<WeatherForecast>>()
             .ProducesProblem(StatusCodes.Status429TooManyRequests)
             .WithName(nameof(GetWeatherForecast));
+    }
+}
+
+public partial class WeatherForecastEndpoint
+{
+    private static async Task<IResult> GetWeatherForecast(ISender mediator, CancellationToken cancellationToken)
+    {
+        var result = await mediator.Send(GetWeatherForecastQuery.Instance, cancellationToken);
+        return await Task.FromResult(Results.Ok(result));
     }
 }
