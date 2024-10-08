@@ -4,9 +4,9 @@ using NexusGate.Shared.Abstractions;
 
 namespace NexusGate.Configurations;
 
-public static class EndpointsDiscoveryConfiguration
+public static class MapEndpointsConfiguration
 {
-    public static IEndpointRouteBuilder UseMapEndpoints(this IEndpointRouteBuilder routeBuilder)
+    public static IEndpointRouteBuilder UseMapEndpointsConfiguration(this IEndpointRouteBuilder routeBuilder)
     {
         var endpoints = DiscoverClasses.Search<IEndpoint>();
         

@@ -22,7 +22,7 @@ internal static class EndpointConfiguration
             .WithApiVersionSet(versionSet)
             .WithOpenApi();
 
-        globalGroup.UseMapEndpoints();
+        globalGroup.UseMapEndpointsConfiguration();
         return app;
     }
 }
