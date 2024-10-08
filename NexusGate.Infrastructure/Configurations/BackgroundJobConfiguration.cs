@@ -1,8 +1,9 @@
-﻿using Quartz;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Quartz;
 
-namespace NexusGate.Configurations;
+namespace NexusGate.Infrastructure.Configurations;
 
-internal static class BackgroundJobConfiguration
+public static class BackgroundJobConfiguration
 {
     public static IServiceCollection AddBackgroundJobConfiguration(this IServiceCollection services)
     {

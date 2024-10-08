@@ -1,6 +1,9 @@
-﻿namespace NexusGate.Configurations;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
-internal static class CorsConfiguration
+namespace NexusGate.Infrastructure.Configurations;
+
+public static class CorsConfiguration
 {
     private const string AllowAllOrigins = nameof(AllowAllOrigins);
     

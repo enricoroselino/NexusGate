@@ -21,8 +21,7 @@ internal static class EndpointConfiguration
         var globalGroup = app.MapGroup("api/v{apiVersion:apiVersion}")
             .WithApiVersionSet(versionSet)
             .WithOpenApi();
-
-        globalGroup.UseMapEndpointsConfiguration();
-        return app;
+        
+        return globalGroup.UseMapEndpointsConfiguration();
     }
 }

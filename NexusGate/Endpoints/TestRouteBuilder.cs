@@ -1,6 +1,6 @@
 ﻿using NexusGate.Shared.Abstractions;
 
-namespace NexusGate;
+namespace NexusGate.Endpoints;
 
 public class TestEndpoint
 {
