@@ -1,6 +1,6 @@
 ﻿using Modules.Forecast.Core.Domain;
 
-namespace Modules.Forecast.Core.Persistence;
+namespace Modules.Forecast.Core.Features.Weather.Persistence;
 
 public interface IWeatherRepository
 {

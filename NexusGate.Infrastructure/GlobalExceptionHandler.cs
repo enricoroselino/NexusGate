@@ -55,7 +55,6 @@ internal class GlobalExceptionHandler: IExceptionHandler
             InternalServerException => StatusCodes.Status500InternalServerError,
             ValidationException => StatusCodes.Status400BadRequest,
             BadRequestException => StatusCodes.Status400BadRequest,
-            // NotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError,
         };
 

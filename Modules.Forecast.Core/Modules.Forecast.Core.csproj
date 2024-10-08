@@ -10,4 +10,8 @@
       <ProjectReference Include="..\NexusGate.Shared\NexusGate.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Weather\" />
+    </ItemGroup>
+
 </Project>

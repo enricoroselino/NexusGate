@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using Modules.Forecast.Core.Application.Queries;
 using Modules.Forecast.Core.Domain;
+using Modules.Forecast.Core.Features.Weather.Queries;
 using NexusGate.Shared.Abstractions;
 
 namespace Modules.Forecast;
