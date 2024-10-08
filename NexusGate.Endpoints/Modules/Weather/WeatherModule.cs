@@ -1,7 +1,8 @@
-﻿using NexusGate.Modules.Weather.Persistence;
+﻿using Microsoft.Extensions.DependencyInjection;
+using NexusGate.Endpoints.Modules.Weather.Persistence;
 using NexusGate.Shared.Abstractions;
 
-namespace NexusGate.Modules.Weather;
+namespace NexusGate.Endpoints.Modules.Weather;
 
 public class WeatherModule : IModule
 {

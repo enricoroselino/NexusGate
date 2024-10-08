@@ -23,8 +23,4 @@
       <ProjectReference Include="..\NexusGate.Infrastructure\NexusGate.Infrastructure.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Modules\Weather\Application\Commands\" />
-    </ItemGroup>
-
 </Project>

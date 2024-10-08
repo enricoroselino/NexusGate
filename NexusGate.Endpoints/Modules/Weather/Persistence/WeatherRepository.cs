@@ -1,6 +1,6 @@
-﻿using NexusGate.Modules.Weather.Domain;
+﻿using NexusGate.Endpoints.Modules.Weather.Domain;
 
-namespace NexusGate.Modules.Weather.Persistence;
+namespace NexusGate.Endpoints.Modules.Weather.Persistence;
 
 public interface IWeatherRepository
 {

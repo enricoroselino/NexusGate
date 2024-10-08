@@ -21,7 +21,8 @@ internal static class ModulesDiscoveryConfiguration
         var assemblies = AppDomain.CurrentDomain.GetAssemblies()
             .Where(a => !a.IsDynamic);
 
-        return assemblies.SelectMany(a => a.GetTypes())
+        return assemblies.Distinct()
+            .SelectMany(a => a.GetTypes())
             .Where(p => p.IsClass && p.IsAssignableTo(typeof(IModule)))
             .Select(Activator.CreateInstance)
             .Cast<IModule>();

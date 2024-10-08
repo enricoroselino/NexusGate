@@ -1,10 +1,11 @@
-﻿using System.Threading.RateLimiting;
-using Carter;
+﻿using Carter;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
 using NexusGate.Shared.Constants;
 using NexusGate.Shared.Exceptions;
-using Sprache;
 
-namespace NexusGate.Modules;
+namespace NexusGate.Endpoints.Modules;
 
 public class FailureEndpoint : ICarterModule
 {

@@ -1,9 +1,12 @@
 ﻿using Carter;
 using MediatR;
-using NexusGate.Modules.Weather.Application.Queries;
-using NexusGate.Modules.Weather.Domain;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using NexusGate.Endpoints.Modules.Weather.Application.Queries;
+using NexusGate.Endpoints.Modules.Weather.Domain;
 
-namespace NexusGate.Modules.Weather.Endpoints;
+namespace NexusGate.Endpoints.Modules.Weather.Endpoints;
 
 public sealed class WeatherEndpoint : ICarterModule
 {
