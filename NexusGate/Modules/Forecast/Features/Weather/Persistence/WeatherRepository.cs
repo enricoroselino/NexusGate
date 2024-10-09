@@ -4,26 +4,39 @@ namespace NexusGate.Modules.Forecast.Features.Weather.Persistence;
 
 public interface IWeatherRepository
 {
-    public Task<List<WeatherForecast>> GetForecastAsync(CancellationToken cancellationToken = default);
+    public Task<List<WeatherForecast>> GetForecastAsync(int count, CancellationToken cancellationToken = default);
+    public Task<WeatherForecast> GetSingleForecastAsync(CancellationToken cancellationToken = default);
 }
 
 public class WeatherRepository : IWeatherRepository
 {
-    public async Task<List<WeatherForecast>> GetForecastAsync(CancellationToken cancellationToken = default)
-    {
-        var summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+    private readonly string[] _summaries =
+    [
+        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    ];
 
-        var forecast = Enumerable.Range(1, 10).Select(index =>
+    public async Task<List<WeatherForecast>> GetForecastAsync(int count, CancellationToken cancellationToken = default)
+    {
+        var forecasts = Enumerable.Range(1, count).Select(index =>
                 new WeatherForecast
                 (
                     DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                     Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
+                    _summaries[Random.Shared.Next(_summaries.Length)]
                 ))
             .ToList();
+
+        return await Task.FromResult(forecasts);
+    }
+
+    public async Task<WeatherForecast> GetSingleForecastAsync(CancellationToken cancellationToken = default)
+    {
+        var forecast = new WeatherForecast
+        (
+            Date: DateOnly.FromDateTime(DateTime.Now.AddDays(Random.Shared.Next(31))),
+            TemperatureC: Random.Shared.Next(-20, 55),
+            Summary: _summaries[Random.Shared.Next(_summaries.Length)]
+        );
 
         return await Task.FromResult(forecast);
     }

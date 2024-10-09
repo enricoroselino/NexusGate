@@ -37,7 +37,7 @@ internal class GlobalExceptionHandler: IExceptionHandler
 
         if (exception is ValidationException validationException)
         {
-            problemDetails.Extensions.Add("ValidationErrors", validationException);
+            problemDetails.Extensions.Add("ValidationErrors", validationException.ValidationResult);
         }
 
         await httpContext

@@ -4,12 +4,9 @@ using NexusGate.Modules.Forecast.Features.Weather.Persistence;
 
 namespace NexusGate.Modules.Forecast.Features.Weather.Queries;
 
-public class GetWeatherForecastQuery : IQuery<List<WeatherForecast>>
-{
-    public static readonly GetWeatherForecastQuery Instance = new();
-}
+public record GetSingleWeatherForecastQuery : IQuery<WeatherForecast>;
 
-public class GetWeatherForecastQueryHandler : IQueryHandler<GetWeatherForecastQuery, List<WeatherForecast>>
+public class GetWeatherForecastQueryHandler : IQueryHandler<GetSingleWeatherForecastQuery, WeatherForecast>
 {
     private readonly IWeatherRepository _weatherRepository;
 
@@ -18,10 +15,10 @@ public class GetWeatherForecastQueryHandler : IQueryHandler<GetWeatherForecastQu
         _weatherRepository = weatherRepository;
     }
 
-    public async Task<List<WeatherForecast>> Handle(
-        GetWeatherForecastQuery request,
+    public async Task<WeatherForecast> Handle(
+        GetSingleWeatherForecastQuery request,
         CancellationToken cancellationToken)
     {
-        return await _weatherRepository.GetForecastAsync(cancellationToken);
+        return await _weatherRepository.GetSingleForecastAsync(cancellationToken);
     }
 }
