@@ -1,8 +1,8 @@
-﻿using NexusGate.Endpoints.Modules.Weather.Domain;
-using NexusGate.Endpoints.Modules.Weather.Persistence;
+﻿using NexusGate.Modules.Forecast.Domain;
+using NexusGate.Modules.Forecast.Features.Weather.Persistence;
 using NexusGate.Shared.Abstractions.CQRS;
 
-namespace NexusGate.Endpoints.Modules.Weather.Application.Queries;
+namespace NexusGate.Modules.Forecast.Features.Weather.Queries;
 
 public class GetWeatherForecastQuery : IQuery<List<WeatherForecast>>
 {

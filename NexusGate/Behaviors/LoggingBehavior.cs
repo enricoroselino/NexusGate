@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using Microsoft.Extensions.Logging;
 
-namespace NexusGate.Infrastructure.Behaviors;
+namespace NexusGate.Behaviors;
 
 internal class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

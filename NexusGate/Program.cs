@@ -1,6 +1,6 @@
-using System.Reflection;
 using DotNetEnv;
 using NexusGate;
+using NexusGate.Shared;
 
 Env.Load(".env");
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddConfigurationsBootstrap(Assembly.GetExecutingAssembly());
+builder.Services.AddConfigurationsBootstrap();
 
 var app = builder.Build();
 

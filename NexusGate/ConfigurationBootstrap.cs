@@ -1,23 +1,22 @@
-﻿using System.Reflection;
-using NexusGate.Configurations;
+﻿using NexusGate.Configurations;
 using NexusGate.Infrastructure.Configurations;
 
 namespace NexusGate;
 
 public static class ConfigurationBootstrap
 {
-    public static IServiceCollection AddConfigurationsBootstrap(this IServiceCollection services, Assembly assembly)
+    public static IServiceCollection AddConfigurationsBootstrap(this IServiceCollection services)
     {
         // Endpoint Configurations
         services.AddEndpointConfiguration();
         services.AddApiDocumentationConfiguration();
-        services.AddModulesDiscoveryConfiguration();
+        services.AddModulesConfiguration();
 
         // Service Configurations
-        services.AddFluentValidationConfiguration(assembly);
         services.AddBackgroundJobConfiguration();
-        services.AddMediatorConfiguration(assembly);
         services.AddGlobalExceptionConfiguration();
+        services.AddMediatorConfiguration();
+        services.AddFluentValidationConfiguration();
 
         // Infrastructure Configurations
         services.AddRateLimiterConfiguration();

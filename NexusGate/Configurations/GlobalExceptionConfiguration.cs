@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿namespace NexusGate.Configurations;
 
-namespace NexusGate.Infrastructure.Configurations;
-
-public static class GlobalExceptionConfiguration
+internal static class GlobalExceptionConfiguration
 {
     public static IServiceCollection AddGlobalExceptionConfiguration(this IServiceCollection services)
     {

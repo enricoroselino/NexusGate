@@ -20,11 +20,10 @@ internal static class EndpointConfiguration
             .ReportApiVersions()
             .Build();
 
-        app.MapGroup("api/v{apiVersion:apiVersion}")
+        var globalGroup = app.MapGroup("api/v{apiVersion:apiVersion}")
             .WithApiVersionSet(versionSet)
-            .WithOpenApi()
-            .MapCarter();
+            .WithOpenApi();
 
-        return app;
+        return globalGroup.MapCarter();
     }
 }

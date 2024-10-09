@@ -1,11 +1,9 @@
-﻿using FluentValidation;
+﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using NexusGate.Shared.Exceptions;
 
-namespace NexusGate.Infrastructure;
+namespace NexusGate;
 
 internal class GlobalExceptionHandler: IExceptionHandler
 {
@@ -39,8 +37,7 @@ internal class GlobalExceptionHandler: IExceptionHandler
 
         if (exception is ValidationException validationException)
         {
-            problemDetails.Extensions.Add("ValidationErrors", 
-                validationException.Errors);
+            problemDetails.Extensions.Add("ValidationErrors", validationException);
         }
 
         await httpContext
@@ -55,7 +52,6 @@ internal class GlobalExceptionHandler: IExceptionHandler
             InternalServerException => StatusCodes.Status500InternalServerError,
             ValidationException => StatusCodes.Status400BadRequest,
             BadRequestException => StatusCodes.Status400BadRequest,
-            // NotFoundException => StatusCodes.Status404NotFound,
             _ => StatusCodes.Status500InternalServerError,
         };
 
