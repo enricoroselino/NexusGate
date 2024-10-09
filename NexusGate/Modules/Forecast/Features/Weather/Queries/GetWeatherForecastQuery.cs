@@ -1,6 +1,6 @@
-﻿using NexusGate.Modules.Forecast.Domain;
+﻿using NexusGate.Abstractions;
+using NexusGate.Modules.Forecast.Domain;
 using NexusGate.Modules.Forecast.Features.Weather.Persistence;
-using NexusGate.Shared.Abstractions.CQRS;
 
 namespace NexusGate.Modules.Forecast.Features.Weather.Queries;
 

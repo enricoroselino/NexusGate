@@ -8,21 +8,29 @@
 
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Abstractions" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI" Version="8.0.2" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="8.0.1" />
         <PackageReference Include="Carter" Version="8.2.1" />
         <PackageReference Include="DotNetEnv" Version="3.1.1" />
-        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
         <PackageReference Include="MediatR" Version="12.4.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8"/>
         <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.11.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+        <PackageReference Include="Quartz" Version="3.13.0" />
         <PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.13.0" />
         <PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.8.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.8.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.8.1" />
         <PackageReference Include="System.Text.Json" Version="8.0.4" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\NexusGate.Infrastructure\NexusGate.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

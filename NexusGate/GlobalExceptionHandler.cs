@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NexusGate.Shared.Exceptions;
+using NexusGate.Exceptions;
 
 namespace NexusGate;
 

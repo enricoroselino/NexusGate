@@ -2,11 +2,10 @@
 
 namespace NexusGate.Modules.Forecast;
 
-public static class ForecastModule
+public class ForecastModule : IModule
 {
-    public static IServiceCollection AddForecastModule(this IServiceCollection services)
+    public void AddModule(IServiceCollection services)
     {
         services.AddScoped<IWeatherRepository, WeatherRepository>();
-        return services;
     }
 }

@@ -1,6 +1,5 @@
 using DotNetEnv;
 using NexusGate;
-using NexusGate.Shared;
 
 Env.Load(".env");
 var builder = WebApplication.CreateBuilder(args);

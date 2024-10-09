@@ -1,6 +1,5 @@
 ﻿using Asp.Versioning;
 using Carter;
-using NexusGate.Infrastructure.Configurations;
 
 namespace NexusGate.Configurations;
 
