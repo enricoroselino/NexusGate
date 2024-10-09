@@ -15,7 +15,7 @@ public class GetWeatherForecastQueryHandler : IQueryHandler<GetSingleWeatherFore
         _weatherRepository = weatherRepository;
     }
 
-    public async Task<WeatherForecast> Handle(
+    public async ValueTask<WeatherForecast> Handle(
         GetSingleWeatherForecastQuery request,
         CancellationToken cancellationToken)
     {
