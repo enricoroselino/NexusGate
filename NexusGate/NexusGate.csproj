@@ -37,4 +37,10 @@
         <PackageReference Include="System.Text.Json" Version="8.0.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Modules\Forecast\Application\" />
+      <Folder Include="Modules\Github\Application\" />
+      <Folder Include="Modules\Github\Endpoints\" />
+    </ItemGroup>
+
 </Project>
