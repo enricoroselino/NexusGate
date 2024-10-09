@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>12</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -40,7 +41,9 @@
     <ItemGroup>
       <Folder Include="Modules\Forecast\Application\" />
       <Folder Include="Modules\Github\Application\" />
+      <Folder Include="Modules\Github\Domain\" />
       <Folder Include="Modules\Github\Endpoints\" />
+      <Folder Include="Modules\Github\Persistence\" />
     </ItemGroup>
 
 </Project>
