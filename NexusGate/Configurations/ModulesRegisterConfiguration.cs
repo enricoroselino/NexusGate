@@ -7,12 +7,12 @@ internal static class ModulesRegisterConfiguration
 {
     public static IServiceCollection AddModulesRegisterConfiguration(this IServiceCollection services)
     {
-        var assemblies = AssemblyHelper.LoadRecursiveAssemblies();
-        var instances = InstanceHelper.GetInstances<IModule>(assemblies);
+        var assemblies = AssemblyHelper.LoadExecutedAssemblies();
+        var modules = InstanceHelper.GetInstances<IModule>(assemblies);
         
-        foreach (var instance in instances)
+        foreach (var module in modules)
         {
-            instance.AddModule(services);
+            module.AddModule(services);
         }
         
         return services;
