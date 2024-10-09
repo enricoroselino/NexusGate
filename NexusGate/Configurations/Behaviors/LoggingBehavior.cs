@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Mediator;
 
 namespace NexusGate.Configurations.Behaviors;
 
@@ -12,17 +12,16 @@ internal class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest
         _logger = logger;
     }
 
-    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next,
-        CancellationToken cancellationToken)
+    public async ValueTask<TResponse> Handle(TRequest message, CancellationToken cancellationToken, MessageHandlerDelegate<TRequest, TResponse> next)
     {
         var requestName = typeof(TRequest).Name;
         var responseName = typeof(TResponse).Name;
-
+        
         const string startTemplate =
-            "[START] Handle Request{@RequestName} - Response={@ResponseName} - RequestData={@RequestData}";
+            "[START] Handle Request{@RequestName} - Response={@ResponseName} - RequestData={@message}";
         const string endTemplate = "[END] Handled {@Request} with {@Response}";
-        _logger.LogInformation(startTemplate, requestName, responseName, request);
-        var response = await next();
+        _logger.LogInformation(startTemplate, requestName, responseName, message);
+        var response = await next(message, cancellationToken);
         _logger.LogInformation(endTemplate, requestName, responseName);
 
         return response;

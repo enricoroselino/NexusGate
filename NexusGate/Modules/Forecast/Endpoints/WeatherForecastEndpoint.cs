@@ -1,5 +1,5 @@
 ﻿using Carter;
-using MediatR;
+using Mediator;
 using NexusGate.Constants;
 using NexusGate.Modules.Forecast.Domain;
 using NexusGate.Modules.Forecast.Features.Weather.Queries;
