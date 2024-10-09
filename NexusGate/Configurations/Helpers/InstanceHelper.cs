@@ -7,6 +7,7 @@ public static class InstanceHelper
     public static IEnumerable<T> GetInstances<T>(IEnumerable<Assembly> assemblies)
     {
         var instances = assemblies
+            .Distinct()
             .SelectMany(assembly => assembly.GetTypes())
             .Where(x => x is { IsClass: true, IsAbstract: false } && typeof(T).IsAssignableFrom(x))
             .Select(Activator.CreateInstance)
