@@ -1,4 +1,4 @@
-﻿namespace Modules.Forecast.Core.Domain;
+﻿namespace NexusGate.Modules.Forecast.Domain;
 
 public record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {

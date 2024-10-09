@@ -1,12 +1,13 @@
-﻿using NexusGate.Shared.Abstractions;
+﻿using Carter;
+using NexusGate.Shared.Abstractions;
 
 namespace NexusGate.Endpoints;
 
-public partial class TestEndpoint : IEndpoint
+public partial class TestEndpoint : ICarterModule
 {
-    public virtual void AddRoutes(IEndpointRouteBuilder routeBuilder)
+    public void AddRoutes(IEndpointRouteBuilder app)
     {
-        var group = routeBuilder.MapGroup("greet");
+        var group = app.MapGroup("greet");
         group.MapGet("/hello", Greet);
     }
 }

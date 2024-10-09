@@ -1,19 +1,16 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Modules.Forecast.Core.Domain;
-using Modules.Forecast.Core.Features.Weather.Queries;
-using NexusGate.Shared.Abstractions;
+﻿using Carter;
+using MediatR;
+using NexusGate.Modules.Forecast.Domain;
+using NexusGate.Modules.Forecast.Features.Weather.Queries;
 
-namespace Modules.Forecast;
+namespace NexusGate.Modules.Forecast.Endpoints;
 
-public partial class WeatherForecastEndpoint: IEndpoint
+public partial class WeatherForecastEndpoint: ICarterModule
 {
-    public virtual void AddRoutes(IEndpointRouteBuilder routeBuilder)
+    public virtual void AddRoutes(IEndpointRouteBuilder app)
     {
         const string groupName = "weather";
-        var group = routeBuilder.MapGroup(groupName);
+        var group = app.MapGroup(groupName);
 
         group.MapGet("/forecast", GetWeatherForecast)
             .Produces<List<WeatherForecast>>()
