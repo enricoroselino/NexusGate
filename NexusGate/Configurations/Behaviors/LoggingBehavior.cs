@@ -12,7 +12,7 @@ internal class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest
         _logger = logger;
     }
 
-    public async ValueTask<TResponse> Handle(TRequest message, CancellationToken cancellationToken, MessageHandlerDelegate<TRequest, TResponse> next)
+    public async ValueTask<TResponse> Handle(TRequest message, MessageHandlerDelegate<TRequest, TResponse> next, CancellationToken cancellationToken)
     {
         var requestName = typeof(TRequest).Name;
         var responseName = typeof(TResponse).Name;
