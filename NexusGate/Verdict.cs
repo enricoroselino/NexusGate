@@ -1,6 +1,18 @@
-﻿using NexusGate.Abstractions;
+﻿namespace NexusGate;
 
-namespace NexusGate;
+public interface IVerdict
+{
+    public bool IsSuccess { get; }
+    public bool IsFailure { get; }
+    public Failure Failure { get; }
+    public TResult Fold<TResult>(Func<TResult> onSuccess, Func<Failure, TResult> onFailure);
+}
+
+public interface IVerdict<out T> : IVerdict
+{
+    public T? Data { get; }
+    public TResult Fold<TResult>(Func<T, TResult> onSuccess, Func<Failure, TResult> onFailure);
+}
 
 public class Verdict : IVerdict
 {
@@ -10,31 +22,36 @@ public class Verdict : IVerdict
         if (isSuccess && failure != Failure.None ||
             !isSuccess && failure == Failure.None)
         {
-            throw new ArgumentException("Invalid Failure", nameof(failure));
+            throw new VerdictException("Invalid Failure", nameof(failure));
         }
 
         IsSuccess = isSuccess;
         Failure = failure;
     }
-
     public bool IsSuccess { get; }
     public bool IsFailure => !IsSuccess;
     public Failure Failure { get; }
-
     public static Verdict Success() => new Verdict(true, failure: Failure.None);
-    public static Verdict<T> Success<T>(T value) => new Verdict<T>(true, value, Failure.None);
+    public static Verdict<T> Success<T>(T value) where T : new() => new Verdict<T>(true, value, Failure.None);
     public static Verdict Failed(Failure failure) => new Verdict(false, failure: failure);
-    public static Verdict<T> Failed<T>(Failure failure) => new Verdict<T>(false, default, failure);
+    public static Verdict<T> Failed<T>(Failure failure) where T : new() => new Verdict<T>(false, default, failure);
+    public TResult Fold<TResult>(Func<TResult> onSuccess, Func<Failure, TResult> onFailure)
+    {
+        return IsSuccess ? onSuccess() : onFailure(Failure);
+    }
 }
 
-public class Verdict<T> : Verdict, IVerdict<T>
+public class Verdict<T> : Verdict, IVerdict<T> where T : new()
 {
     internal Verdict(bool isSuccess, T? data, Failure failure) : base(isSuccess, failure)
     {
         Data = data;
     }
-
     public T? Data { get; }
+    public TResult Fold<TResult>(Func<T, TResult> onSuccess, Func<Failure, TResult> onFailure)
+    {
+        return IsSuccess ? onSuccess(Data ?? new T()) : onFailure(Failure.None);
+    }
 }
 
 public sealed class Failure(object? message, FailureType failureType) : IEquatable<Failure>
@@ -84,4 +101,18 @@ public enum FailureType
     Server,
     Forbidden,
     None
+}
+
+public class VerdictException : Exception
+{
+    public VerdictException(string message) : base(message)
+    {
+    }
+
+    public VerdictException(string message, string details) : base(message)
+    {
+        Details = details;
+    }
+
+    public string? Details { get; }
 }
