@@ -1,4 +1,4 @@
-﻿using NexusGate.Modules.Forecast.Features.Weather.Persistence;
+﻿using NexusGate.Modules.Forecast.Persistence;
 
 namespace NexusGate.Modules.Forecast;
 

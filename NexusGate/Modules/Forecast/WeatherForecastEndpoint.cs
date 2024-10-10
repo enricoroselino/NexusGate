@@ -1,10 +1,10 @@
 ﻿using Carter;
 using Mediator;
 using NexusGate.Constants;
+using NexusGate.Modules.Forecast.Application.Queries;
 using NexusGate.Modules.Forecast.Domain;
-using NexusGate.Modules.Forecast.Features.Weather.Queries;
 
-namespace NexusGate.Modules.Forecast.Endpoints;
+namespace NexusGate.Modules.Forecast;
 
 public partial class WeatherForecastEndpoint : ICarterModule
 {

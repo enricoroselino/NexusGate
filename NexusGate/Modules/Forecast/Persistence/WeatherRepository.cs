@@ -1,6 +1,6 @@
 ﻿using NexusGate.Modules.Forecast.Domain;
 
-namespace NexusGate.Modules.Forecast.Features.Weather.Persistence;
+namespace NexusGate.Modules.Forecast.Persistence;
 
 public interface IWeatherRepository
 {

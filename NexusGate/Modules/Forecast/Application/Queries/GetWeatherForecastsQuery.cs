@@ -1,8 +1,8 @@
 ﻿using NexusGate.Abstractions;
 using NexusGate.Modules.Forecast.Domain;
-using NexusGate.Modules.Forecast.Features.Weather.Persistence;
+using NexusGate.Modules.Forecast.Persistence;
 
-namespace NexusGate.Modules.Forecast.Features.Weather.Queries;
+namespace NexusGate.Modules.Forecast.Application.Queries;
 
 public record GetWeatherForecastsQuery(int Count) : IQuery<List<WeatherForecast>>;
 
